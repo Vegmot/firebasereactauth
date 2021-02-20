@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Form, Button, Alert } from 'react-bootstrap';
+import { Card, Form, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
+import { LogInButton } from './Login.style';
 
 const Login = () => {
   const emailRef = useRef();
@@ -45,14 +46,13 @@ const Login = () => {
               <Form.Control type='password' required ref={passwordRef} />
             </Form.Group>
 
-            <Button
+            <LogInButton
               disabled={loading}
               type='submit'
-              className='btn btn-block mt-4'
-              style={{ backgroundColor: '#1687a7', border: '0' }}
+              className='btn btn-block mt-4 mb-3'
             >
               Log in
-            </Button>
+            </LogInButton>
           </Form>
         </Card.Body>
       </Card>

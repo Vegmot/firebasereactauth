@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Form, Button, Alert } from 'react-bootstrap';
+import { Card, Form, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
+import { Button } from './Register.style';
 
 const Register = () => {
   const emailRef = useRef();
@@ -15,7 +16,10 @@ const Register = () => {
     e.preventDefault();
 
     if (passwordRef.current.value !== confirmPasswordRef.current.value) {
-      return setError('Passwords do not match');
+      setError('Passwords do not match');
+      return setTimeout(() => {
+        setError('');
+      }, 4000);
     }
 
     try {
@@ -53,7 +57,7 @@ const Register = () => {
             <Button
               disabled={loading}
               type='submit'
-              className='btn btn-block mt-4'
+              className='btn btn-block mt-4 mb-3'
               variant='primary'
             >
               Sign up
