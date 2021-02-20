@@ -31,7 +31,7 @@ const Register = () => {
   return (
     <>
       <Card>
-        <Card.Body>
+        <Card.Body className='px-5'>
           <h2 className='text-center mb-4'>Sign up</h2>
           {error && <Alert variant='danger'>{error}</Alert>}
           <Form onSubmit={submitHandler}>
@@ -50,7 +50,12 @@ const Register = () => {
               <Form.Control type='password' required ref={confirmPasswordRef} />
             </Form.Group>
 
-            <Button disabled={loading} type='submit' className='btn btn-block'>
+            <Button
+              disabled={loading}
+              type='submit'
+              className='btn btn-block mt-4'
+              variant='primary'
+            >
               Sign up
             </Button>
           </Form>
